@@ -1,35 +1,20 @@
 import { useEffect, useState } from "react"
 import LayoutDefault from "../layouts/LayoutDefault"
 import { Table } from 'react-bootstrap'
+import Api from "../config/Api"
 const Produtos = () => {
     const [lista, setLista] = useState([
-        // {
-        //     id: 1,
-        //     title: 'Bolsa',
-        //     price: 109.54,
-        //     description: 'bolsa',
-        //     category: 'men´s clothing'
-        // },
-        // {
-        //     id: 2,
-        //     title: 'Calça',
-        //     price: 54.54,
-        //     description: 'calça',
-        //     category: 'men´s clothing'
-        // },
-        // {
-        //     id: 3,
-        //     title: 'Blusa',
-        //     price: 94.54,
-        //     description: 'Blusa',
-        //     category: 'men´s clothing'
-        // }
+        
     ]);
 
     async function listarProdutos() {
-        const response = await fetch('https://fakestoreapi.com/products')
-        const dados = await response.json()
-        setLista(dados)
+        // const response = await fetch('https://fakestoreapi.com/products')
+        // const dados = await response.json()
+        // setLista(dados)
+
+        
+        const response = await Api.get('products')
+        setLista(response.data)
     }
 
     useEffect(() => {
