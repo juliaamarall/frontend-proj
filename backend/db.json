@@ -2,32 +2,6 @@
   "products": [],
   "users": [
     {
-      "id": 1,
-      "username": "Admin",
-      "email": "admin@admin.com.br",
-      "password": "123123",
-      "address": {
-        "street": "Rua 1",
-        "number": "123",
-        "city": "Cidade",
-        "state": "SP",
-        "country": "Brasil"
-      }
-    },
-    {
-      "id": 2,
-      "username": "Admin 2",
-      "email": "admin@admin.com.br",
-      "password": "123123",
-      "address": {
-        "street": "Rua 1",
-        "number": "123",
-        "city": "Cidade",
-        "state": "SP",
-        "country": "Brasil"
-      }
-    },
-    {
       "id": "e019",
       "username": "Emanoel Victor",
       "email": "victor@admin.com.br",
@@ -39,6 +13,12 @@
         "state": "SP",
         "country": "Brasil"
       }
+    },
+    {
+      "id": "b8ad",
+      "username": "julia",
+      "email": "juliaamaral@gmail.com",
+      "password": "123456"
     }
   ],
   "orders": [],

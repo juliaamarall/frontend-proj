@@ -3,9 +3,11 @@ import LayoutDefault from "../layouts/LayoutDefault"
 import { Table } from 'react-bootstrap'
 import axios from  'axios'
 import Api from "../config/Api"
+import { useNavigate, useNavigation } from "react-router-dom"
 
 
 const Usuarios = () => {
+    const navigate = useNavigate();
      const [users, setUsers] = useState([
             
         ]);
@@ -19,6 +21,21 @@ const Usuarios = () => {
             setUsers(response.data)
 
         }
+        
+        // -------------- DELETAR USUARIOS --------------------
+        async function deletarItem(id) {
+            const check = confirm("DESEJA DELETAR ESTE USUÁRIO? ")
+            try {
+                if(check === true){
+                    await Api.delete(`users/${id}`)
+                    alert("USUÁRIO DELETADO COM SUCESSO.")
+                    listarUsers()
+                }
+              
+            } catch (error) {
+                alert("Erro ao deletar usuário" + error.message)
+            }
+        }
     
         useEffect(() => {
             listarUsers()
@@ -26,8 +43,13 @@ const Usuarios = () => {
         console.log(users)
     return (
         <LayoutDefault>
-            <h4>Usuários</h4>
-            <hr />
+            <div className="d-flex justify-content-between">
+            <h4>Usuários</h4> 
+            <button className="btn btn-success" onClick={() => navigate('/usuarios/novo')}>
+                Novo Usuário
+                </button>  
+            </div>
+                        <hr />
             <input type="text" className="form-control" placeholder="Pesquisar" />
             {users.length === 0 && 'Não há usuários.'}
             <Table hover striped>
@@ -38,7 +60,7 @@ const Usuarios = () => {
                         <th>USUÁRIO</th>
                         <th>SENHA</th>
                         <th>TELEFONE</th>
-                        <th>CIDADE</th>
+                        {/* <th>CIDADE</th> */}
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -51,10 +73,10 @@ const Usuarios = () => {
                             <td>{item.username}</td>
                             <td>{item.password}</td>
                             <td>{item.phone}</td>
-                            <td>{item.address.city}</td>
+                            {/* <td>{item.address.city}</td> */}
                             <td>
-                                <button className="btn btn-primary">Editar</button>
-                                <button className="btn btn-danger">Remover</button>
+                                <button className="btn btn-primary" onclick={() => navigate(`/usuarios/editar/${item.id}`)}>Editar</button>
+                                <button className="btn btn-danger" onClick={() =>  deletarItem(item.id)}>Remover</button>
                             </td>
                         </tr>
                     ))}
