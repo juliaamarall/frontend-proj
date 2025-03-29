@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import LayoutDefault from "../layouts/LayoutDefault"
 import Api from '../config/Api'
+<<<<<<< HEAD
 import { useNavigate, useParams } from "react-router-dom"
 import { Form, Formik, ErrorMessage, Field } from "formik"
 import * as Yup from 'yup'
@@ -58,11 +59,47 @@ const FormProdutos = () => {
             <Formik
                 enableReinitialize
                 initialValues={data}
+=======
+import { useNavigate } from "react-router-dom"
+import { Form, Formik, ErrorMessage } from "formik"
+import * as Yup from 'yup'
+const FormProdutos = () => {
+    const navigate = useNavigate();
+    
+    async function salvarDados(values, form) {
+        await Api.post('users', values);
+        alert("Produto Salvo com Sucesso.")
+        form.resetForm()
+    }
+    
+    const validationSchema = Yup.object().shape({
+        username: Yup.string().required('Campo Obrigatório'),
+        email: Yup.string().email('E-mail inválido').required('Campo Obrigatório'),
+        password: Yup.string().required('Campo Obrigatório')
+        .min(6, 'Informe pelo menos 6 caracteres.')
+        .max(10, 'Informe no máximo 10 caractere')
+    })
+
+    useEffect(() => {
+    }, []);
+
+    return (
+        <LayoutDefault>
+            Formulário de Produtos
+            
+            <Formik
+                initialValues={{
+                    username: '',
+                    email: '',
+                    password: ''
+                }}
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
                 validationSchema={validationSchema}
                 onSubmit={(values, form) => {
                     salvarDados(values, form)
                 }}
             >   
+<<<<<<< HEAD
                 {({ handleChange, values }) => (
                     <Form>
                         <div>
@@ -98,6 +135,27 @@ const FormProdutos = () => {
                                 value={values.description}
                                 onChange={handleChange} 
                             />
+=======
+                {({ handleChange }) => (
+                    <Form>
+                        <div>
+                            <label htmlFor="">Nome</label>
+                            <input type="text" className="form-control" name="username" onChange={handleChange} />
+                            <div className="error">
+                                <ErrorMessage name="username" />
+                            </div>
+                        </div>
+                        <div className="mt-3">
+                            <label htmlFor="">E-mail</label>
+                            <input type="text" className="form-control" name="email" onChange={handleChange} />
+                            <div className="error">
+                                <ErrorMessage name="email" />
+                            </div>
+                        </div>
+                        <div className="mt-3">
+                            <label htmlFor="">Senha</label>
+                            <input type="password" className="form-control" name="password" onChange={handleChange} />
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
                             <div className="error">
                                 <ErrorMessage name="password" />
                             </div>
@@ -123,4 +181,8 @@ const FormProdutos = () => {
         </LayoutDefault>
     )
 }
+<<<<<<< HEAD
 export default FormProdutos;
+=======
+export default FormProdutos
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0

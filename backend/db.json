@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "products": [
     {
       "id": 1,
@@ -50,6 +51,28 @@
       "username": "admin",
       "email": "admin@gmail.com",
       "password": "1202222222"
+=======
+  "products": [],
+  "users": [
+    {
+      "id": "e019",
+      "username": "Emanoel Victor",
+      "email": "victor@admin.com.br",
+      "password": "123123",
+      "address": {
+        "street": "Rua 1",
+        "number": "123",
+        "city": "Cidade",
+        "state": "SP",
+        "country": "Brasil"
+      }
+    },
+    {
+      "id": "b8ad",
+      "username": "julia",
+      "email": "juliaamaral@gmail.com",
+      "password": "123456"
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
     }
   ],
   "orders": [],

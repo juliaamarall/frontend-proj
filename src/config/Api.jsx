@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from 'axios';
 
 const Api = axios.create({
@@ -19,3 +20,13 @@ export const ApiPagSeguro = axios.create({
 export default Api;
 
 
+=======
+import axios from  'axios';
+
+const Api = axios.create({
+    // baseURL: 'http://fakestoreapi.com/'
+    baseURL: 'http://localhost:3000/'
+})
+
+export default Api
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0

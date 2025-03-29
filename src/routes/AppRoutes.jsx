@@ -4,8 +4,11 @@ import Produtos from '../pages/Produtos';
 import Usuarios from '../pages/Usuarios';
 import FormUsuarios from '../pages/FormUsuarios';
 import FormProdutos from '../pages/FormProdutos';
+<<<<<<< HEAD
 import VitrinePage from '../pages/Vitrine';
 import HomePage from '../pages/Home';
+=======
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
 function AppRoutes() {
     return (
         <>
@@ -20,6 +23,10 @@ function AppRoutes() {
                     <Route path='/usuarios' element={<Usuarios />} />
                     <Route path='/usuarios/novo' element={<FormUsuarios />} />
                     <Route path='/usuarios/editar/:id' element={<FormUsuarios />} />
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
                 </Routes>
             </BrowserRouter>
         </>

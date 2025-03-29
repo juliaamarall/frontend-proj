@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import LayoutDefault from "../layouts/LayoutDefault"
 import Api from '../config/Api'
+<<<<<<< HEAD
 import { useNavigate, useParams } from "react-router-dom"
 import { Form, Formik, ErrorMessage, Field } from "formik"
 import * as Yup from 'yup'
@@ -38,6 +39,20 @@ const FormUsuarios = () => {
         }
     }
 
+=======
+import { useNavigate } from "react-router-dom"
+import { Form, Formik, ErrorMessage } from "formik"
+import * as Yup from 'yup'
+const FormUsuarios = () => {
+    const navigate = useNavigate();
+    
+    async function salvarDados(values, form) {
+        await Api.post('users', values);
+        alert("Usuário Salvo com Sucesso.")
+        form.resetForm()
+    }
+    
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
     const validationSchema = Yup.object().shape({
         username: Yup.string().required('Campo Obrigatório'),
         email: Yup.string().email('E-mail inválido').required('Campo Obrigatório'),
@@ -47,6 +62,7 @@ const FormUsuarios = () => {
     })
 
     useEffect(() => {
+<<<<<<< HEAD
         getData();
     }, []);
 
@@ -57,11 +73,26 @@ const FormUsuarios = () => {
             <Formik
                 enableReinitialize
                 initialValues={data}
+=======
+    }, []);
+
+    return (
+        <LayoutDefault>
+            Formulário de Usuarios
+            
+            <Formik
+                initialValues={{
+                    username: '',
+                    email: '',
+                    password: ''
+                }}
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
                 validationSchema={validationSchema}
                 onSubmit={(values, form) => {
                     salvarDados(values, form)
                 }}
             >   
+<<<<<<< HEAD
                 {({ handleChange, values }) => (
                     <Form>
                         <div>
@@ -71,12 +102,20 @@ const FormUsuarios = () => {
                                 className="form-control" 
                                 name="username" 
                             />
+=======
+                {({ handleChange }) => (
+                    <Form>
+                        <div>
+                            <label htmlFor="">Nome</label>
+                            <input type="text" className="form-control" name="username" onChange={handleChange} />
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
                             <div className="error">
                                 <ErrorMessage name="username" />
                             </div>
                         </div>
                         <div className="mt-3">
                             <label htmlFor="">E-mail</label>
+<<<<<<< HEAD
                             <input 
                                 type="text" 
                                 className="form-control" 
@@ -84,12 +123,16 @@ const FormUsuarios = () => {
                                 value={values.email}
                                 onChange={handleChange} 
                             />
+=======
+                            <input type="text" className="form-control" name="email" onChange={handleChange} />
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
                             <div className="error">
                                 <ErrorMessage name="email" />
                             </div>
                         </div>
                         <div className="mt-3">
                             <label htmlFor="">Senha</label>
+<<<<<<< HEAD
                             <input 
                                 type="password" 
                                 className="form-control" 
@@ -97,6 +140,9 @@ const FormUsuarios = () => {
                                 value={values.password}
                                 onChange={handleChange} 
                             />
+=======
+                            <input type="password" className="form-control" name="password" onChange={handleChange} />
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
                             <div className="error">
                                 <ErrorMessage name="password" />
                             </div>

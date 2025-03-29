@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import LayoutDefault from "../layouts/LayoutDefault"
 import { Table } from 'react-bootstrap'
+<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom"
 import Api from "../config/Api"
 const Produtos = () => {
@@ -27,6 +28,24 @@ const Produtos = () => {
         } catch(error) {
             alert("Erro ao deletar produto. " + error.message)
         }
+=======
+import Api from "../config/Api"
+import { useNavigate, useNavigation } from "react-router-dom"
+const Produtos = () => {
+    const navigate = useNavigate();
+    const [lista, setLista] = useState([
+        
+    ]);
+
+    async function listarProdutos() {
+        // const response = await fetch('https://fakestoreapi.com/products')
+        // const dados = await response.json()
+        // setLista(dados)
+
+        
+        const response = await Api.get('products')
+        setLista(response.data)
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
     }
 
     useEffect(() => {
@@ -35,11 +54,20 @@ const Produtos = () => {
 
     return (
         <LayoutDefault>
+<<<<<<< HEAD
              <div className="d-flex justify-content-between">
                 <h4>Produtos</h4>
                 <button onClick={() => navigate('/produtos/novo')} className="btn btn-success btn-sm">
                     Novo Produto
                 </button>
+=======
+            
+            <div className="d-flex justify-content-between">
+            <h4>Produtos</h4>
+            <button className="btn btn-success" onClick={() => navigate('/produtos/novo')}>
+                Novo Produto
+                </button>  
+>>>>>>> c22f80b79929722e048cbceade859ccc5cc1c0c0
             </div>
             <hr />
             <input type="text" className="form-control" placeholder="Pesquisar" />
