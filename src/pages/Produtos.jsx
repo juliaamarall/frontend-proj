@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import LayoutDefault from "../layouts/LayoutDefault"
 import { Table } from 'react-bootstrap'
 import Api from "../config/Api"
+import { useNavigate, useNavigation } from "react-router-dom"
 const Produtos = () => {
+    const navigate = useNavigate();
     const [lista, setLista] = useState([
         
     ]);
@@ -24,7 +26,13 @@ const Produtos = () => {
     // https://dontpad.com/fs21
     return (
         <LayoutDefault>
+            
+            <div className="d-flex justify-content-between">
             <h4>Produtos</h4>
+            <button className="btn btn-success" onClick={() => navigate('/produtos/novo')}>
+                Novo Produto
+                </button>  
+            </div>
             <hr />
             <input type="text" className="form-control" placeholder="Pesquisar" />
             {lista.length === 0 && 'Não há produtos.'}
